@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#111">
+    <title>Media Access</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type='text/css'>
+    <link rel="manifest" href="{% static 'json/manifest.json' %}">
+    <script src="{% static 'js/app.js' %}"></script>
+
+</head>
+<style type="text/css">
+	
+.mediaAcc{
+    height: 100%;
+    width: 20%;
+    border: 2px solid black;
+    border-radius: 7px;
+    display: inline-block;
+    margin-left: 10%;
+}
+</style>
+<body>
+        <div id="mySidenav" class="sidenav">
+                
+                <a href="/../">Booking</a>
+                <a href="/../location/">Track your ride</a>
+                <a href="#">Feedback</a>
+                <a href="#">Media Access</a>
+              </div>
+    <header class="header">
+            <p style="font-size:20px;cursor:pointer; margin:0; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);" onclick="openNav()" id="nav">&#9776;</p>
+        <h1 class="header_title" id="Bus_title"> Bus companion</h1>
+        <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()"></button>
+    </header>
+    <main class='main'>
+        <div id="container1" style="height:60%;">
+            <a href="videos"><div class="mediaAcc" id="videos" style="background-image: url('../../static/images/media/images/Movies.jpg');"><h2>Movies!</h2></div></a>
+            <a href="music"><div class="mediaAcc" id="music" style="background-image: url('../../static/images/media/images/songs.jpg');"><h2>Music!</h2></div></a>
+            <a href="books"><div class="mediaAcc" id="books" style="background-image: url('../../static/images/media/images/books.jpg');"><h2>Books!</h2></div></a>
+        </div>
+    </main>
+
+    
+</body>
+</html>

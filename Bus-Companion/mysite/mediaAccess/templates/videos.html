@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#111">
+    <title>Media Access</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type='text/css'>
+    <link rel="manifest" href="{% static 'json/manifest.json' %}">
+    <script src="{% static 'js/app.js' %}"></script>
+    <!--<script src="{% static 'js/change.js' %}"></script>
+    -->
+    <script>
+            function openwindow(path){
+            var v=document.getElementById("videoPlayer")
+            var s=document.getElementById("myvideo");
+            var d=document.getElementById("show");
+            // document.getElementById('container').style.height='auto';
+            d.style.height="100%";
+            d.style.width="100%";
+            s.src=path;
+            v.style.height="100%";
+            v.style.width="100%";
+            v.pause();
+            v.currentTime=0;
+            v.load();
+            v.play();
+            }
+            
+    </script>
+    <style>
+
+a { 
+    color :#444;
+    text-decoration: none;
+
+} 
+    
+    </style>
+
+</head>
+<style type="text/css">
+ 
+</style>
+
+<body>
+        <div id="mySidenav" class="sidenav">
+                
+                <a href="/../">Booking</a>
+                <a href="/../../location/">Track your ride</a>
+                <a href="#">Feedback</a>
+                <a href="../media">Media Access</a>
+              </div>
+    <header class="header">
+            <span style="font-size:20px;cursor:pointer; margin:0; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);" onclick="openNav()" id="nav">&#9776;</span>
+        <h1 class="header_title" id="Bus_title"> Bus companion</h1>
+        <button id="butRefresh" class="headerButton" aria-label="Refresh" onclick="butRefresh()" type="button"></button>
+    </header>
+    <main class='main'>
+        <div id="container">
+            {% if v %} 
+            <h1><center>Movies</center></h1>
+                <ul>
+                    {% for video in v %}
+
+                        <!-- <li><a href="{{video.media}}">{{video.media}}</a></li> -->
+                        
+                        <li><h3><a href="#show" id={{video.media}} onclick=openwindow(id)>{{video.name}}</a></h3></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h3>No albums found</h3>
+            {% endif %}
+       
+        <center>   
+        <div style="height:0%;width:0%;background-color:#eff0f1;display:inline-block;margin-top:2%;" id="show">
+            <video height="0%" width="0%" preload="none" controls id="videoPlayer">
+                <source id="myvideo" type="video/mp4">
+            </video>
+        </div>
+        </center>
+         </div>  
+                    
+                
+            
+    </main>
+
+    
+</body>
+</html>
